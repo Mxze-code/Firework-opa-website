@@ -1,0 +1,27 @@
+Desert Rose -> desert-rose.png
+Flame Falls -> flame-falls.png
+Arche NICO -> arche-nico.png
+Rhino -> rhino.png
+Paradise Beach -> paradise-beach.png
+Hofnarr -> hofnarr.png
+Pharaoh -> pharaoh.png
+Flowergirls -> flowergirls.png
+Blacksmith Betty -> blacksmith-betty.png
+Cloud Chaser -> cloud-chaser.png
+Donnerröhren -> donnerroehren.png
+Inferno -> inferno.png
+Bombenrohr -> bombenrohr.png
+Helicopter -> helicopter.png
+Feuerkasten -> feuerkasten.png
+Infinity Paradox -> infinity-paradox.png
+Volltreffer -> volltreffer.png
+Rocket Strike -> rocket-strike.png
+Funky Diamonds -> funky-diamonds.png
+Stardust -> stardust.png
+Hamsterkauf -> hamsterkauf.png
+Lady-Cracker -> lady-cracker.png
+Störtebeker -> stoertebeker.png
+Pyro-Pack -> pyro-pack.png
+Wild Boys -> wild-boys.png
+Knallbonbon 26 cm -> knallbonbon-26-cm.png
+Bengalfeuer -> bengalfeuer.png

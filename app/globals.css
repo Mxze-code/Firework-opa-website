@@ -1,0 +1,381 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Seiten-Hintergrund überall identisch (#0f1419) – Overlays nur mit diesen RGB-Werten */
+  --bg-dark: #0f1419;
+  --bg-dark-rgb: 15, 20, 25;
+  --bg-card: #1a2332;
+  --bg-card-hover: #243044;
+  --text-primary: #f0f4f8;
+  --text-secondary: #94a3b8;
+  --accent-gold: #c9a227;
+  --accent-gold-hover: #d4b03a;
+  --border: #2d3a4d;
+  --content-max: 80rem; /* 1280px – großzügige Desktop-Breite */
+}
+
+html {
+  background-color: var(--bg-dark);
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg-dark);
+  color: var(--text-primary);
+}
+
+.font-heading {
+  font-family: var(--font-heading);
+}
+
+/* Dezente Logo-Floating-Animation – sehr langsam, kaum spürbar */
+@keyframes logo-float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+.animate-logo-float {
+  animation: logo-float 5s ease-in-out infinite;
+}
+
+.animate-logo-float:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-logo-float {
+    animation: none;
+  }
+}
+
+/* Dezente Partikel-Burst-Animation für Cart-Interaktionen */
+@keyframes cart-particle-burst {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) translate(0px, 0px) scale(0.85)
+      rotate(var(--rot, 0deg));
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) translate(var(--dx, 0px), var(--dy, 0px))
+      scale(0.7) rotate(var(--rot, 0deg));
+  }
+}
+
+.cart-particle {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: var(--w, 2px);
+  height: var(--h, 2px);
+  border-radius: 9999px;
+  background: var(--c, #c9a227);
+  opacity: 0;
+  animation: cart-particle-burst 420ms ease-out forwards;
+  animation-delay: var(--delay, 0ms);
+  box-shadow: 0 0 10px rgba(201, 162, 39, 0.14);
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cart-particle {
+    animation: none;
+    display: none;
+  }
+}
+
+/* Ruhige Entrance-Animation für den Startseiten-Hero */
+@keyframes hero-fade-rise {
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-bg-fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(6px) scale(1.01);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1.01);
+  }
+}
+
+.home-hero .hero-entrance {
+  opacity: 0;
+  animation: hero-fade-rise 820ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.home-hero .hero-entrance-1 {
+  animation-delay: 0ms;
+}
+.home-hero .hero-entrance-2 {
+  animation-delay: 120ms;
+}
+.home-hero .hero-entrance-3 {
+  animation-delay: 240ms;
+}
+.home-hero .hero-entrance-4 {
+  animation-delay: 360ms;
+}
+
+.home-hero .hero-bg-entrance {
+  opacity: 0;
+  animation: hero-bg-fade-in 900ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-hero .hero-entrance,
+  .home-hero .hero-bg-entrance {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/* Landingpage: Struktur, Textur, Tiefe (nur Startseite / bewusst dezent)     */
+/* -------------------------------------------------------------------------- */
+
+.home-landing {
+  position: relative;
+  background: transparent;
+}
+
+/*
+ * Weicher Übergang unter der Navbar: kein harter Cut, eher atmosphärische Kante.
+ * Oben sehr dezent ans Header-Dunkel angeglichen, nach unten auslaufend.
+ */
+.nav-header-divider {
+  position: relative;
+  height: 2.5rem;
+  width: 100%;
+  flex-shrink: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    rgba(var(--bg-dark-rgb), 0.45) 0%,
+    rgba(var(--bg-dark-rgb), 0.18) 42%,
+    rgba(var(--bg-dark-rgb), 0.06) 72%,
+    transparent 100%
+  );
+}
+
+/* Gold-Trennung unter dem Header – wieder klarer sichtbar, weiterhin weich an den Rändern */
+.nav-header-divider::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(201, 162, 39, 0.22) 28%,
+    rgba(201, 162, 39, 0.52) 50%,
+    rgba(201, 162, 39, 0.22) 72%,
+    transparent 100%
+  );
+  opacity: 1;
+}
+
+/* Startseite: nur die Goldlinie behalten, ohne den hohen Verlauf-Block */
+.nav-header-divider--line-only {
+  height: 1px;
+  background: transparent;
+}
+
+/* Section-Divider: verlaufende Linien + kleines Zentrum */
+.landing-section-divider {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+.landing-divider-line--left {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(45, 58, 77, 0.45) 35%,
+    rgba(201, 162, 39, 0.12) 100%
+  );
+}
+
+.landing-divider-line--right {
+  background: linear-gradient(
+    90deg,
+    rgba(201, 162, 39, 0.12) 0%,
+    rgba(45, 58, 77, 0.45) 65%,
+    transparent 100%
+  );
+}
+
+/* Feature-Band: gleiche Grundfarbe wie body/hero (kein abweichender Verlauf) */
+.landing-features-band {
+  position: relative;
+  background: transparent;
+}
+
+/* Gold-Linie am Hero->Content-Uebergang, analog zur Header-Linie */
+.landing-hero-divider {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 5;
+  height: 1px;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(201, 162, 39, 0.22) 28%,
+    rgba(201, 162, 39, 0.52) 50%,
+    rgba(201, 162, 39, 0.22) 72%,
+    transparent 100%
+  );
+}
+
+.landing-features-band::after {
+  content: "";
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 100%;
+  height: 7rem;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    rgba(var(--bg-dark-rgb), 0.26) 0%,
+    rgba(var(--bg-dark-rgb), 0.1) 45%,
+    transparent 100%
+  );
+}
+
+.landing-features-band::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  /* Solide Flaeche ohne Halbkreis-/Radial-Look */
+  background: linear-gradient(
+    to bottom,
+    rgba(var(--bg-dark-rgb), 0.16) 0%,
+    rgba(var(--bg-dark-rgb), 0.08) 42%,
+    transparent 100%
+  );
+}
+
+.landing-features-texture {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: radial-gradient(
+    rgba(148, 163, 184, 0.065) 1px,
+    transparent 1px
+  );
+  background-size: 20px 20px;
+  -webkit-mask-image: linear-gradient(
+    180deg,
+    #000 0%,
+    #000 55%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(180deg, #000 0%, #000 55%, transparent 100%);
+}
+
+/* Hartmann Raketen-Add-to-Cart Overlay */
+.cart-rocket {
+  position: fixed;
+  left: 0;
+  top: 0;
+  transform: translate3d(0, 0, 0) translate(-50%, -50%);
+  transition: opacity 180ms ease-out;
+  will-change: transform, opacity;
+  filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.45)) drop-shadow(0 0 18px rgba(201,162,39,0.25));
+  z-index: 90;
+}
+
+.cart-rocket-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  pointer-events: none;
+}
+
+@keyframes cart-rocket-impact {
+  0% {
+    opacity: 0;
+    transform: translate3d(var(--ix, 0px), var(--iy, 0px), 0)
+      translate(-50%, -50%) scale(0.7);
+    filter: blur(0px);
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(var(--ix, 0px), var(--iy, 0px), 0)
+      translate(-50%, -50%) scale(1.25);
+    filter: blur(0.2px);
+  }
+}
+
+.cart-rocket-impact {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 9999px;
+  background: radial-gradient(
+    circle,
+    rgba(248, 250, 252, 0.95) 0%,
+    rgba(201, 162, 39, 0.6) 35%,
+    rgba(201, 162, 39, 0) 70%
+  );
+  opacity: 0;
+  --ix: 0px;
+  --iy: 0px;
+  transform: translate3d(var(--ix), var(--iy), 0) translate(-50%, -50%) scale(0.7);
+  z-index: 91;
+  pointer-events: none;
+}
+
+.cart-rocket-impact {
+  animation: cart-rocket-impact 520ms ease-out forwards;
+}
+
+@keyframes cart-icon-bounce {
+  0% {
+    transform: translateZ(0) scale(1);
+  }
+  30% {
+    transform: translateZ(0) scale(1.06);
+  }
+  70% {
+    transform: translateZ(0) scale(0.98);
+  }
+  100% {
+    transform: translateZ(0) scale(1);
+  }
+}
+
+.cart-icon-burst-bounce {
+  animation: cart-icon-bounce 420ms cubic-bezier(0.2, 0.9, 0.2, 1) both;
+}
