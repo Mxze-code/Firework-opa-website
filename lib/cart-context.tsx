@@ -50,6 +50,15 @@ function saveToStorage(items: CartItem[]) {
   }
 }
 
+function clearStorage() {
+  if (typeof window === "undefined") return;
+  try {
+    localStorage.removeItem(STORAGE_KEY);
+  } catch {
+    // ignore
+  }
+}
+
 export function CartProvider({ children }: { children: React.ReactNode }) {
   const [items, setItems] = useState<CartItem[]>([]);
   const [hydrated, setHydrated] = useState(false);
@@ -93,7 +102,10 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     );
   }, []);
 
-  const clearCart = useCallback(() => setItems([]), []);
+  const clearCart = useCallback(() => {
+    clearStorage();
+    setItems([]);
+  }, []);
 
   const totalItems = useMemo(
     () => items.reduce((sum, i) => sum + i.quantity, 0),

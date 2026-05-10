@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { flushSync } from "react-dom";
 import { useCart } from "@/lib/cart-context";
 import { CartItemRow } from "./cart-item";
 
@@ -55,7 +56,9 @@ export function CartSummary() {
     const body = [...intro, ...productLines, ...summary].join("\n");
     const mailto = `mailto:${inquiryRecipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
-    clearCart();
+    flushSync(() => {
+      clearCart();
+    });
     window.location.href = mailto;
   };
 
