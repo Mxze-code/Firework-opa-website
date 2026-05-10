@@ -3,7 +3,7 @@ import Link from "next/link";
 const cards = [
   {
     title: "Vertrieb an Wiederverkäufer",
-    description: "Zuverlaessige Belieferung fuer Handel und Gewerbe.",
+    description: "Zuverlässige Belieferung für Handel und Gewerbe.",
     icon: (
       <svg
         aria-hidden
@@ -23,7 +23,7 @@ const cards = [
   },
   {
     title: "Tradition seit 1951",
-    description: "Erfahrung und Verkauf seit ueber sieben Jahrzehnten.",
+    description: "Erfahrung und Verkauf seit über sieben Jahrzehnten.",
     icon: (
       <svg
         aria-hidden
@@ -41,9 +41,9 @@ const cards = [
     ),
   },
   {
-    title: "Ganzjaehriger Vertrieb",
+    title: "Ganzjähriger Vertrieb",
     description:
-      "Ganzjaehriger Verkauf mit persoenlicher Beratung.",
+      "Ganzjähriger Verkauf mit persönlicher Beratung.",
     icon: (
       <svg
         aria-hidden
@@ -69,7 +69,7 @@ const cards = [
   },
   {
     title: "Zum Katalog",
-    description: "Unser aktuelles Sortiment im Ueberblick.",
+    description: "Unser aktuelles Sortiment im Überblick.",
     href: "/katalog",
     isLink: true,
     icon: (

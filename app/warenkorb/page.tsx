@@ -14,7 +14,7 @@ export default function WarenkorbPage() {
             Produktanfrage
           </h1>
           <p className="mt-4 text-[#94a3b8]">
-            Stellen Sie eine unverbindliche Anfrage zu den ausgewaehlten
+            Stellen Sie eine unverbindliche Anfrage zu den ausgewählten
             Produkten. Ohne Kasse, ohne Bezahlung im Onlineshop.
           </p>
         </header>

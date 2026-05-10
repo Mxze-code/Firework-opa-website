@@ -272,11 +272,11 @@ const rawProducts: Product[] = [
     slug: "donnerroehren",
     articleNumber: "03320",
     name: "Donnerröhren",
-    type: "10er-Schachtel Feuerwerksrohre",
+    type: "10er-Schachtel Feuerwerksröhren",
     category: "Rohr",
     price: 6.49,
     shortDescription:
-      "Große Feuerwerksrohre mit lautstark zerlegenden, zweistufigen Effekten.",
+      "Große Feuerwerksröhren mit lautstark zerlegenden, zweistufigen Effekten.",
     features: [
       "10er-Schachtel",
       "zweistufige Effekte",

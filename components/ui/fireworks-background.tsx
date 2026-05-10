@@ -34,7 +34,7 @@ export function FireworksBackground({
   className,
   /** Ruhigere Szene: Explosionen eher mittig/unten, weniger Aktivität oben */
   heroScene = false,
-  /** Optional: als feste Viewport-Ebene nutzen (Landing-Buehne). */
+  /** Optional: als feste Viewport-Ebene nutzen (Landing-Bühne). */
   fixedViewport = false,
 }: {
   children?: React.ReactNode;

@@ -5,15 +5,15 @@ import { useCart } from "@/lib/cart-context";
 import { CartItemRow } from "./cart-item";
 
 export function CartSummary() {
-  const { items, updateQuantity, removeItem, subtotal } = useCart();
-  const inquiryRecipient = "Hartmann.hu@gmx.de";
+  const { items, updateQuantity, removeItem, subtotal, clearCart } = useCart();
+  const inquiryRecipient = "hartmann.hu@gmx.de";
 
   const handleSendInquiry = () => {
     const subject = "Produktanfrage Feuerwerk";
     const intro = [
       "Guten Tag,",
       "",
-      "ich moechte eine unverbindliche Produktanfrage stellen:",
+      "Ich möchte eine unverbindliche Produktanfrage stellen:",
       "",
     ];
     const productLines = items.map((item, index) => {
@@ -44,7 +44,7 @@ export function CartSummary() {
         currency: "EUR",
       }),
       "",
-      "Bitte um Rueckmeldung zu Verfuegbarkeit und weiteren Details.",
+      "Bitte um Rückmeldung zu Verfügbarkeit und weiteren Details.",
       "",
       "Name:",
       "E-Mail:",
@@ -55,6 +55,7 @@ export function CartSummary() {
     const body = [...intro, ...productLines, ...summary].join("\n");
     const mailto = `mailto:${inquiryRecipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
+    clearCart();
     window.location.href = mailto;
   };
 

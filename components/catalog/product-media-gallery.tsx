@@ -154,7 +154,7 @@ export function ProductMediaGallery({
               type="button"
               onClick={showNext}
               className="absolute right-3 top-1/2 -translate-y-1/2 border border-[#2d3a4d] bg-[#0f1419]/85 px-3 py-2 text-sm text-[#f0f4f8] transition hover:border-[#c9a227]/60 hover:text-[#c9a227]"
-              aria-label="Naechstes Medium"
+              aria-label="Nächstes Medium"
             >
               →
             </button>

@@ -15,7 +15,7 @@ export default function NotFound() {
             href="/katalog"
             className="border border-[#c9a227] px-6 py-3 text-center text-sm font-medium text-[#c9a227] hover:bg-[#c9a227]/10 transition"
           >
-            Zurueck zum Katalog
+            Zurück zum Katalog
           </Link>
           <Link
             href="/"
