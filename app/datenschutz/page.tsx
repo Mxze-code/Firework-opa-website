@@ -38,7 +38,15 @@ export default function DatenschutzPage() {
           <p>96472 Rödental</p>
           <p>Deutschland</p>
           <p className="pt-3">Telefon: 09563 4896</p>
-          <p>E-Mail: [HIER DEINE E-MAIL EINTRAGEN]</p>
+          <p>
+            E-Mail:{" "}
+            <a
+              href="mailto:hartmann.hu@gmx.de"
+              className="text-[#c9a227] underline decoration-[#c9a227]/35 underline-offset-2 transition-colors hover:text-[#d4b03a] hover:decoration-[#d4b03a]/50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#c9a227]/45"
+            >
+              hartmann.hu@gmx.de
+            </a>
+          </p>
         </div>
       </section>
 

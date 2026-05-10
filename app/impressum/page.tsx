@@ -43,7 +43,13 @@ export default function ImpressumPage() {
           Kontakt
         </h2>
         <p className="text-base leading-relaxed text-[#94a3b8] md:text-[1.0625rem] md:leading-8">
-          E-Mail: [HIER DEINE E-MAIL EINTRAGEN]
+          E-Mail:{" "}
+          <a
+            href="mailto:hartmann.hu@gmx.de"
+            className="text-[#c9a227] underline decoration-[#c9a227]/35 underline-offset-2 transition-colors hover:text-[#d4b03a] hover:decoration-[#d4b03a]/50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#c9a227]/45"
+          >
+            hartmann.hu@gmx.de
+          </a>
         </p>
       </section>
 
