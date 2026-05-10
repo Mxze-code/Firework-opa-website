@@ -36,11 +36,13 @@ export default function RootLayout({
     <html lang="de" className={`${merriweather.variable} ${sourceSans.variable}`}>
       <body className="font-body antialiased">
         <AppProviders>
-          <Navbar />
-          <CartRocketAddToCart />
-          <CartScreenBurst />
-          <main>{children}</main>
-          <Footer />
+          <div className="flex min-h-screen flex-col">
+            <Navbar />
+            <CartRocketAddToCart />
+            <CartScreenBurst />
+            <main className="flex-1">{children}</main>
+            <Footer />
+          </div>
         </AppProviders>
       </body>
     </html>
